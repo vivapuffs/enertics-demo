@@ -7,8 +7,32 @@
     <button (click)="logout()">Logout from Google</button>
   </div>
   <div>
-    <button (click)="getStatus()">Console log back end request</button>
+    <button (click)="getStatus(); isButtonClicked = true;">Console log back end request</button>
   </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Device ID</th>
+        <th>Motor Location</th>
+        <th>Motor Model</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="isButtonClicked">
+      <tr *ngFor="let item of parsedData">
+        
+        <td>{{item.DeviceID}}</td>
+        <td>{{item.CompanyName}}</td>
+        <td>{{item.MotorModel}}</td>
+        <td>{{item.Email}}</td>
+        <td>{{item.PhoneNumber}}</td>
+        <td>{{item.MotorModel}}</td>
+        <td>{{item.MotorLocation}}</td>
+    </tr>
+    
+    </tbody>
+    
+  </table>
+  
 </div>
 
 <router-outlet></router-outlet>
